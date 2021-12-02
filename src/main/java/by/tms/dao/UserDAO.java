@@ -10,8 +10,9 @@ public class UserDAO {
     private final List<User> users = new ArrayList<>();
     private int count;
 
-    public void add (String login, String password) {
-        users.add(new User(++count, login, password));
+    public void add (User user) {
+        user.setId(++count);
+        users.add(user);
     }
 
     public User findUserByLogin(String login) {

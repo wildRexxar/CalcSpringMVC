@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping
+@RequestMapping("user")
 public class UserController {
 
     private final UserDAO userStorage;
@@ -28,11 +28,9 @@ public class UserController {
     }
 
     @PostMapping("/reg")
-    public String reg(@RequestParam(value = "login", required = false) String login,
-                      @RequestParam(value = "password", required = false) String password,
-                      Model model){
-        if(userStorage.findUserByLogin(login) == null) {
-            userStorage.add(login, password);
+    public String reg(User user, Model model){
+        if(userStorage.findUserByLogin(user.getLogin()) == null) {
+            userStorage.add(user);
             return "redirect:/";
         } else {
             model.addAttribute("message", "Such a user exists");
@@ -46,13 +44,11 @@ public class UserController {
     }
 
     @PostMapping("/auth")
-    public String auth(@RequestParam(value = "login", required = false) String login,
-                       @RequestParam(value = "password", required = false) String password,
-                       HttpServletRequest req, HttpSession session, Model model){
-        User user =  userStorage.findUserByLogin(login);
-        if(user != null) {
-            if (user.getPassword().equals(password)) {
-                session.setAttribute("user", user);
+    public String auth(User user, HttpSession session, Model model){
+        User exUser =  userStorage.findUserByLogin(user.getLogin());
+        if(exUser != null) {
+            if (exUser.getPassword().equals(user.getPassword())) {
+                session.setAttribute("user", exUser);
                 return "redirect:/";
             } else {
                 model.addAttribute("message", "Wrong password");

@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 public class ResultDAO {
     private final List<Result> results = new ArrayList<>();
 
-    public void addResult(int id, double num1, double num2, double result, String action) {
-        results.add(new Result(id, num1, num2, result, action));
+    public void addResult(Result result) {
+        results.add(result);
     }
 
     public List<Result> getListResultsById(int id) {

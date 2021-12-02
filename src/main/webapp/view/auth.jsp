@@ -11,7 +11,7 @@
     <title>Authorization</title>
 </head>
 <body>
-<form action="/auth" method="post">
+<form action="/user/auth" method="post">
     <input type="text" name="login" placeholder="Login"/>
     <input type="text" name="password" placeholder="Password"/>
     <button>Submit</button>

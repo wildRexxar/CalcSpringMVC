@@ -11,12 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/calc/processing" method="post">
+<form action="/calc" method="post">
     <p><input type="text" name="num1" placeholder="Enter num"></p>
 
     <p><input type="text" name="num2" placeholder="Enter num"></p>
 
-    <input type="radio" name="action" value="add">+<br>
+    <input type="radio" name="action" value="plus">+<br>
     <input type="radio" name="action" value="sub">-<br>
     <input type="radio" name="action" value="multi">*<br>
     <input type="radio" name="action" value="div">/<br>

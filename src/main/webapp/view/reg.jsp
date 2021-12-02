@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="/reg" method="post">
+<form action="/user/reg" method="post">
     <input type="text" name="login" placeholder="Login"/>
     <input type="text" name="password" placeholder="Password"/>
     <button>Submit</button>

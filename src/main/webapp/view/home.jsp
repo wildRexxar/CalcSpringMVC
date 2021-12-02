@@ -15,15 +15,15 @@
 
 <c:if test="${sessionScope.user == null}">
     <p>Hello Guest!</p>
-    <a href="/reg">Registration</a>
-    <a href="/auth">Authorization</a>
+    <a href="/user/reg">Registration</a>
+    <a href="/user/auth">Authorization</a>
 </c:if>
 
 <c:if test="${sessionScope.user != null}">
     <p>Your number is ${sessionScope.user.id}!</p>
-    <a href="/calc/processing">Calculator</a>
+    <a href="/calc">Calculator</a>
     <a href="/calc/history">Result history</a>
-    <a href="/logout">Logout</a>
+    <a href="/user/logout">Logout</a>
 </c:if>
 </body>
 </html>
